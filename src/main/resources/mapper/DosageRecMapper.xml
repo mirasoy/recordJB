@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="recordJB.mapper.DosageRecMapper">
+
+<select id="readAll" resultType="recordJB.dto.DosageRecDTO">
+SELECT * FROM DosageRec ORDER BY  DOSING_TIME DESC
+</select>
+
+
+<insert id="recode">
+INSERT INTO `recordjb`.`dosagerec` 
+	(
+	`DOSING_TIME`,
+	`PILL_TYPE`, 
+	`MEMO`
+	)
+	VALUES
+	( 
+	#{dosingTime},
+	#{pillType},
+	#{memo}
+	);
+</insert>
+<delete id="delete">
+	DELETE FROM  `recordjb`.`dosagerec`
+	WHERE DOSING_NO = #{no}
+</delete>
+
+</mapper>
