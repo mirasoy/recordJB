@@ -2,43 +2,8 @@ plugins {
 	id 'org.springframework.boot' version '2.2.11.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
 	id 'java'
+	id 'war'
 }
-
-apply plugin: 'io.spring.dependency-management'
-apply plugin: 'org.springframework.boot'
-apply plugin: 'io.spring.dependency-management'
-
-
-
-jar {
-
-    baseName = "homepage-batch"
-
-    version = "${buildVersion}"
-
-    manifest {
-
-        attributes 'Title': 'Reqeust And Header Tester',
-
-                   'Version': 1.0,
-
-                   'Main-Class': 'com.donzbox.HomepageBatchApplication'
-
-    }
-
-    from {
-
-        configurations.compile.collect {
-
-            it.isDirectory() ? it : zipTree(it)
-
-        }
-
-    }
-
-}
-
-
 
 group = 'com.recordJB'
 version = '0.0.1-SNAPSHOT'
