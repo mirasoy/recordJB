@@ -2,12 +2,17 @@ package recordJB;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
-
-public class RecordJbApplication {
-
-	public static void main(String[] args) {
-		SpringApplication.run(RecordJbApplication.class, args);
+@SpringBootApplication
+public class RecordJbApplication extends SpringBootServletInitializer {
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+		return builder.sources(RecordJbApplication.class);
 	}
 
+	public static void main(final String[] args) {
+		SpringApplication.run(RecordJbApplication.class, args);
+	}
 }
